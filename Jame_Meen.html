@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudarat & Rittichai Wedding Invitation</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f3e8ff; /* Pastel Purple Background */
+        }
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+        #welcome-screen {
+            background-image: url('pictures/STA_0045.jpg');
+            background-size: contain; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            transition: opacity 1s ease-in-out;
+        }
+        .card-content {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: none;
+        }
+        .card-content.visible {
+            opacity: 1;
+            display: block;
+        }
+        .mj-logo {
+            font-family: 'Great Vibes', cursive;
+            border: 2px solid #d8bfd8;
+            color: #8a2be2;
+        }
+        .gallery-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#e9d5ff]">
+
+    <div id="welcome-screen" class="fixed top-0 left-0 w-full h-full z-50">
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 flex flex-col items-center justify-end text-white p-4 pb-20">
+            <h1 class="font-great-vibes text-5xl md:text-7xl text-center shadow-lg">Welcome to our Wedding</h1>
+            <p class="text-2xl md:text-4xl mt-4 text-center shadow-md">Sudarat & Rittichai</p>
+            <p class="text-xl md:text-2xl mt-2 text-center shadow-md">20 February 2026</p>
+            <button id="enter-button" class="mt-8 bg-white text-purple-700 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition duration-300">
+                Click Here
+            </button>
+        </div>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="Music/wedding-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="main-content" class="card-content">
+        <div class="container mx-auto max-w-3xl my-10 bg-white rounded-2xl shadow-2xl p-6 md:p-12">
+            
+            <div class="flex justify-center mb-8">
+                <div class="mj-logo w-24 h-24 rounded-full flex items-center justify-center text-5xl">
+                    MJ
+                </div>
+            </div>
+
+            <div class="text-center text-gray-700 mb-10">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-800">ขอเรียนเชิญ</h2>
+                <p class="text-md leading-relaxed">
+                    ด้วยความยินดีอย่างยิ่ง ขอเรียนเชิญท่านมาร่วมเป็นสักขีพยาน
+                    ในพิธีมงคลสมรสของเรา ในบรรยากาศเรียบง่าย อบอุ่น และเป็นกันเอง 💛
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mb-12">
+                <div class="text-center w-full md:w-1/2">
+                    <img src="pictures/002.jfif" alt="เจ้าสาว" class="w-80 h-80 mx-auto rounded-full object-cover object-center shadow-lg border-4 border-pink-200 p-2 bg-white">
+                    <h3 class="text-2xl font-semibold mt-4 text-pink-500">มีน (Meen)</h3>
+                    <p class="text-gray-600">นางสาวสุดารัตน์ เมืองเงิน</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรีของ: [*** ชื่อคุณพ่อเจ้าสาว ***] และ [*** ชื่อคุณแม่เจ้าสาว ***]</p>
+                </div>
+                <div class="text-center w-full md:w-1/2">
+                    <img src="pictures/STA_0093.jpg" alt="เจ้าบ่าว" class="w-80 h-80 mx-auto rounded-full object-cover object-center shadow-lg border-4 border-purple-200 p-2 bg-white">
+                    <h3 class="text-2xl font-semibold mt-4 text-purple-700">เจมส์ (James)</h3>
+                    <p class="text-gray-600">นายฤทธิชัย หยอมแหยม</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรของ: [*** ชื่อคุณพ่อเจ้าบ่าว ***] และ [*** ชื่อคุณแม่เจ้าบ่าว ***]</p>
+                </div>
+            </div>
+            
+            <hr class="my-10 border-gray-200">
+
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-semibold text-purple-800 mb-4">Theme Colors</h3>
+                <p class="text-gray-600 mb-4">แต่งกายในโทนสีม่วง-ชมพู-ขาว</p>
+                <div class="flex justify-center items-center gap-2 md:gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#B19CD9] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#C8A2C8] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#E0BBE4] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F7C8E0] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#FFD1DC] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F5F5F5] shadow-md border-2 border-gray-200"></div>
+                </div>
+            </div>
+            
+            <hr class="my-10 border-gray-200">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-purple-800 mb-6 text-center">Our Story</h3>
+                
+                <div> 
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg bg-black">
+                        <video 
+                            class="w-full h-full object-contain"
+                            controls 
+                            poster="pictures/your-video-poster.jpg"
+                            preload="metadata"
+                            playsinline>
+                            <source src="videos/your-video-file.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-10 border-gray-200">
+
+            <div class="relative mb-12">
+                <button id="scroll-left" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 z-10 hover:bg-opacity-100 transition shadow-md ml-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <div id="gallery-container" class="flex overflow-x-auto space-x-4 p-4 scrollbar-hide">
+                    <img src="pictures/STA_0036.jpg" alt="Gallery image 1" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0139.jpg" alt="Gallery image 2" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0186.jpg" alt="Gallery image 3" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0221.jpg" alt="Gallery image 4" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0284.jpg" alt="Gallery image 5" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0324.jpg" alt="Gallery image 6" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0350.jpg" alt="Gallery image 7" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0045.jpg" alt="Gallery image 8" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0093.jpg" alt="Gallery image 9" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                    <img src="pictures/STA_0428.jpg" alt="Gallery image 10" class="gallery-scroll-image w-64 h-96 flex-shrink-0 object-cover rounded-lg shadow-md cursor-pointer">
+                </div>
+                <button id="scroll-right" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 z-10 hover:bg-opacity-100 transition shadow-md mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <hr class="my-10 border-gray-200">
+
+            <div class="flex flex-col md:flex-row gap-6 mb-12">
+                 <img src="pictures/STA_0139.jpg" alt="Couple shot 1" class="w-full md:w-1/2 rounded-xl shadow-lg gallery-image">
+                 <img src="pictures/STA_0186.jpg" alt="Couple shot 2" class="w-full md:w-1/2 rounded-xl shadow-lg gallery-image">
+            </div>
+
+            <hr class="my-10 border-gray-200">
+
+            <div class="text-center my-12">
+                <p class="text-gray-600 mb-2">ร่วมแชร์โมเมนต์สุดประทับใจของเราผ่าน</p>
+                <h3 class="font-great-vibes text-4xl text-purple-600 tracking-wider">#MeenJamesForever</h3>
+            </div>
+
+             <hr class="my-10 border-gray-200">
+
+            <div class="text-center bg-purple-50 rounded-lg p-6 mb-12">
+                 <h3 class="text-xl font-semibold text-purple-800 mb-2">Wedding Gift</h3>
+                 <p class="text-gray-600 mb-4">ร่วมแสดงความยินดีกับคู่บ่าว-สาว ผ่าน QR Code</p>
+                 <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                     <img src="pictures/QRCodeJame.jfif" alt="QR Code for James" class="mx-auto rounded-lg shadow-md w-48 h-48 object-cover">
+                     <img src="pictures/QRCodeMeen.jfif" alt="QR Code for Meen" class="mx-auto rounded-lg shadow-md w-48 h-48 object-cover">
+                 </div>
+            </div>
+            
+            <hr class="my-10 border-gray-200">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-purple-800 mb-6 text-center">กำหนดการ</h3>
+                <p class="text-center text-lg text-gray-600 mb-10">วันศุกร์ที่ 20 กุมภาพันธ์ พ.ศ. 2569</p>
+
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="absolute left-1/2 w-0.5 h-full bg-purple-200 transform -translate-x-1/2"></div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full odd:flex-row-reverse">
+                        <div class="w-5/12"></div> <div class="z-10 bg-purple-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                        <div class="w-5/12 bg-purple-50 rounded-lg shadow-md p-4">
+                            <div class="flex items-center justify-end gap-4">
+                                <div class="text-right">
+                                    <p class="font-semibold text-gray-700">07:09 น.</p>
+                                    <p class="text-gray-600">พิธีสงฆ์</p>
+                                </div>
+                                <img src="pictures/1.jpg" alt="พิธีสงฆ์" class="w-16 h-16 object-contain bg-white p-1 rounded-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full">
+                        <div class="w-5/12 bg-pink-50 rounded-lg shadow-md p-4">
+                            <div class="flex items-center gap-4">
+                                <img src="pictures/2.jpg" alt="พิธีแห่ขันหมาก" class="w-16 h-16 object-contain bg-white p-1 rounded-full">
+                                <div class="text-left">
+                                    <p class="font-semibold text-gray-700">09:09 น.</p>
+                                    <p class="text-gray-600">พิธีแห่ขันหมาก</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-10 bg-purple-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                        <div class="w-5/12"></div> </div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full odd:flex-row-reverse">
+                        <div class="w-5/12"></div> <div class="z-10 bg-purple-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                        <div class="w-5/12 bg-purple-50 rounded-lg shadow-md p-4">
+                            <div class="flex items-center justify-end gap-4">
+                                <div class="text-right">
+                                    <p class="font-semibold text-gray-700">10:09 น.</p>
+                                    <p class="text-gray-600">พิธีผูกข้อมือ</p>
+                                </div>
+                                <img src="pictures/3.jpg" alt="พิธีผูกข้อมือ" class="w-16 h-16 object-contain bg-white p-1 rounded-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex justify-between items-center w-full">
+                        <div class="w-5/12 bg-pink-50 rounded-lg shadow-md p-4">
+                            <div class="flex items-center gap-4">
+                                <img src="pictures/4.jpg" alt="ร่วมรับประทานอาหาร" class="w-16 h-16 object-contain bg-white p-1 rounded-full">
+                                <div class="text-left">
+                                    <p class="font-semibold text-gray-700">11:00 น.</p>
+                                    <p class="text-gray-600">ร่วมรับประทานอาหาร (โต๊ะจีน)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-10 bg-purple-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                        <div class="w-5/12"></div> </div>
+
+                </div>
+            </div>
+
+            <hr class="my-10 border-gray-200">
+
+            <div class="text-center mt-8">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sudarat+%26+Rittichai+Wedding&dates=20260220T070900/20260220T140000&details=Wedding+of+Sudarat+and+Rittichai&location=[***+ใส่ชื่อหรือที่อยู่สถานที่จัดงาน+***]" target="_blank" class="inline-block bg-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-pink-600 transition duration-300">
+                    📅 เพิ่มลงในปฏิทิน
+                </a>
+            </div>
+
+            <div id="countdown" class="text-center my-12 text-purple-800 flex justify-center items-center space-x-4">
+                <div><span id="days" class="text-4xl font-bold"></span><p class="text-sm">วัน</p></div>
+                <div><span id="hours" class="text-4xl font-bold"></span><p class="text-sm">ชั่วโมง</p></div>
+                <div><span id="minutes" class="text-4xl font-bold"></span><p class="text-sm">นาที</p></div>
+                <div><span id="seconds" class="text-4xl font-bold"></span><p class="text-sm">วินาที</p></div>
+            </div>
+            
+             <hr class="my-10 border-gray-200">
+
+            <div class="mb-12 text-center">
+                <h3 class="text-2xl font-semibold text-purple-800 mb-4">สถานที่จัดงาน</h3>
+                <div class="w-full h-80 rounded-lg overflow-hidden shadow-lg border-2 border-purple-100">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3208.8148719266496!2d99.99055455387756!3d16.977232060011684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30dfab996c1515bf%3A0x74e8fef8e1ea461a!2z4Liq4Li44LiU4LiyIOC4iuC4suC5gOC4n-C5iCAoU3VkYSBDaGFmZSk!5e0!3m2!1sth!2sth!4v1759997774751!5m2!1sth!2sth" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="https://maps.app.goo.gl/qLYsRxQGboqPcTwq8" target="_blank" 
+                        class="inline-block bg-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-purple-700 transition duration-300">
+                        📍 คลิกเพื่อนำทาง
+                    </a>
+                </div>
+            </div>
+            <hr class="my-10 border-gray-200">
+            
+            <div class="text-center text-gray-600 mb-10">
+                 <h3 class="text-xl font-semibold text-purple-800 mb-2">สอบถามข้อมูลเพิ่มเติม</h3>
+                 <div class="flex items-center justify-center gap-2">
+                     <a href="https://www.facebook.com/Jameszeedza" target="_blank" class="text-gray-600 hover:text-purple-700 transition">
+                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                     </a>
+                     <span>Jame Rittichai</span>
+                 </div>
+                 <div class="flex items-center justify-center gap-2 mt-2">
+                      <a href="https://www.facebook.com/enong.meenza" target="_blank" class="text-gray-600 hover:text-purple-700 transition">
+                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                     </a>
+                     <span>Meen Meen</span>
+                 </div>
+                 <div class="flex items-center justify-center gap-2 mt-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                     </svg>
+                     <span>เจมส์: 095-635-5698</span>
+                 </div>
+                 <div class="flex items-center justify-center gap-2 mt-2">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                     </svg>
+                     <span>มีน: 095-727-6577</span>
+                 </div>
+            </div>
+            <hr class="my-10 border-gray-200">
+
+            <div class="text-center text-gray-500 italic space-y-4">
+                <p>ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง</p>
+            </div>
+            <hr class="my-10 border-gray-200">
+
+        <div id="blessing-section" class="text-center bg-white rounded-2xl shadow-lg p-6 md:p-8 my-12">
+             <h3 class="text-2xl font-semibold text-purple-800 mb-4">Leave a Blessing</h3>
+             <p class="text-gray-600 mb-6">ร่วมส่งคำอวยพรให้คู่บ่าว-สาว</p>
+             
+             <form id="blessing-form" class="space-y-4 max-w-lg mx-auto text-left">
+                  <div>
+                      <label for="guest-name" class="block text-sm font-medium text-gray-700 mb-1">ชื่อของคุณ (Your Name)</label>
+                      <input type="text" name="guest-name" id="guest-name" placeholder="ใส่ชื่อของคุณที่นี่" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                  </div>
+                  <div>
+                      <label for="guest-message" class="block text-sm font-medium text-gray-700 mb-1">คำอวยพร (Blessing)</label>
+                      <textarea name="guest-message" id="guest-message" rows="4" placeholder="เขียนคำอวยพร..." required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                  </div>
+                  <div class="text-center pt-2">
+                      <button id="submit-button" type="submit" class="bg-purple-600 text-white font-semibold py-2 px-8 rounded-full shadow-lg hover:bg-purple-700 transition duration-300">
+                          ส่งคำอวยพร
+                      </button>
+                  </div>
+             </form>
+             <hr class="my-10 border-gray-200">
+
+             <div id="thank-you-message" class="hidden text-center py-8">
+                <p class="font-semibold text-gray-700 not-italic">ขอบคุณที่ร่วมแบ่งปันช่วงเวลาแสนพิเศษกับเรา<br>— พบกันในวันงานนะคะ 🥂 —</p>
+                <p class="text-gray-600 mt-2">คำอวยพรของคุณถูกบันทึกเรียบร้อยแล้ว</p>
+             </div>
+         </div>
+
+       <script>
+            const blessingForm = document.getElementById('blessing-form');
+            const submitButton = document.getElementById('submit-button');
+            const thankYouMessage = document.getElementById('thank-you-message');
+            
+            blessingForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxvNKDChRGimofb4DLkbaVo7hR_g7u90Q-B6AmYKJMH1FkNzn-ubH9uXxPV5rJvFEhg/exec';
+                
+                submitButton.disabled = true;
+                submitButton.innerText = 'กำลังส่ง...';
+
+                const formData = new FormData(blessingForm);
+                
+                fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: formData
+                })
+                .then(response => {
+                    console.log('Success!', response);
+                    blessingForm.classList.add('hidden');
+                    thankYouMessage.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('เกิดข้อผิดพลาดในการส่งข้อมูล ขออภัยในความไม่สะดวกค่ะ');
+                    submitButton.disabled = false;
+                    submitButton.innerText = 'ส่งคำอวยพร';
+                });
+            });
+         </script>
+        </div>
+    </div>
+
+    <div id="image-modal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+        <span id="modal-close" class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer">×</span>
+        <img id="modal-image" src="" alt="Enlarged image" class="max-w-full max-h-[90vh] object-contain">
+    </div>
+
+    <button id="music-toggle" class="fixed bottom-4 right-4 bg-white p-3 rounded-full shadow-lg z-50 transition hover:scale-110">
+        <svg id="music-icon-on" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.858 5.858a3 3 0 014.243 0L12 7.757l1.9-1.9a3 3 0 014.242 0 3 3 0 010 4.242L12 16.242l-6.142-6.142a3 3 0 010-4.242z" />
+        </svg>
+        <svg id="music-icon-off" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l-4-4m0 4l4-4" />
+        </svg>
+    </button>
+
+    <script>
+        // Welcome Screen Logic
+        const enterButton = document.getElementById('enter-button');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainContent = document.getElementById('main-content');
+        const backgroundMusic = document.getElementById('background-music');
+
+        enterButton.addEventListener('click', () => {
+            backgroundMusic.volume = 0.5;
+            backgroundMusic.play();
+
+            welcomeScreen.style.opacity = '0';
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                mainContent.classList.add('visible');
+                window.scrollTo(0, 0);
+            }, 1000);
+        });
+
+        // Countdown Timer Logic
+        const countdownDate = new Date("Feb 20, 2026 07:09:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            }
+            
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                if (document.getElementById("countdown")) {
+                    document.getElementById("countdown").innerHTML = "<div class='text-2xl font-bold'>The Wedding Day is Here!</div>";
+                }
+            }
+        }, 1000);
+
+        // Image Modal Logic
+        const galleryImages = document.querySelectorAll('.gallery-scroll-image, .gallery-image');
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModal = document.getElementById('modal-close');
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modalImage.src = image.src;
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // Gallery Scroll Logic
+        const galleryContainer = document.getElementById('gallery-container');
+        const scrollLeftButton = document.getElementById('scroll-left');
+        const scrollRightButton = document.getElementById('scroll-right');
+
+        scrollLeftButton.addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        scrollRightButton.addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // New: Music Toggle Logic
+        const musicToggleButton = document.getElementById('music-toggle');
+        const musicIconOn = document.getElementById('music-icon-on');
+        const musicIconOff = document.getElementById('music-icon-off');
+        
+        musicToggleButton.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicIconOn.classList.remove('hidden');
+                musicIconOff.classList.add('hidden');
+            } else {
+                backgroundMusic.pause();
+                musicIconOn.classList.add('hidden');
+                musicIconOff.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -96,15 +96,17 @@
                     <img src="pictures/002.jfif" alt="เจ้าสาว" class="w-80 h-80 mx-auto rounded-full object-cover object-center shadow-lg border-4 border-pink-200 p-2 bg-white">
                     <h3 class="text-2xl font-semibold mt-4 text-pink-500">มีน (Meen)</h3>
                     <p class="text-gray-600">นางสาวสุดารัตน์ เมืองเงิน</p>
-                    <p class="text-gray-500 text-sm mt-1">บุตรีของ: [*** ชื่อคุณพ่อเจ้าสาว ***] และ [*** ชื่อคุณแม่เจ้าสาว ***]</p>
-                    <p class="text-gray-500 text-sm mt-1">[*** ชื่อคุณตาเจ้าสาว ***]</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรของ:       [นาย ฉัตรชัย เมืองเงิน]     คุณพ่อเจ้าสาว</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรของ:       [นางชาริสา เมืองเงิน]      คุณแม่เจ้าสาว</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรหลายของ:   [นายประสิทธิ์ โตเหี้ยม]     คุณตาเจ้าสาว</p>
                 </div>
                 <div class="text-center w-full md:w-1/2">
                     <img src="pictures/STA_0093.jpg" alt="เจ้าบ่าว" class="w-80 h-80 mx-auto rounded-full object-cover object-center shadow-lg border-4 border-purple-200 p-2 bg-white">
                     <h3 class="text-2xl font-semibold mt-4 text-purple-700">เจมส์ (James)</h3>
                     <p class="text-gray-600">นายฤทธิชัย บัวเผื่อน</p>
-                    <p class="text-gray-500 text-sm mt-1">บุตรของ: [*** นางสาว ทองย้อย บัวเผื่อน คุณแม่เจ้าบ่าว ***]</p>
-                    <p class="text-gray-500 text-sm mt-1">[*** นาย ยิ้ม บัวเผื่อน คุณตาเจ้าบ่าว และ  นาง นิยม บัวเผื่อน คุณยายเจ้าบ่าว ***]</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรของ:       [นางสาว ทองย้อย บัวเผื่อน]  คุณแม่เจ้าบ่าว</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรหลายของ:   [นาย ยิ้ม บัวเผื่อน]         คุณตาเจ้าบ่าว</p>
+                    <p class="text-gray-500 text-sm mt-1">บุตรหลายของ:   [นาง นิยม บัวเผื่อน]        คุณยายเจ้าบ่าว</p>
                 </div>
             </div>
             
@@ -363,7 +365,7 @@
     <h3 class="text-2xl font-semibold text-purple-800 mb-4">Leave a Blessing</h3>
     <p class="text-gray-600 mb-6">ร่วมส่งคำอวยพรให้คู่บ่าว-สาว</p>
     
-    <form id="blessing-form" class="space-y-4 max-w-lg mx-auto text-left">
+    <form id="blessing-form" class="space-y-4 max-w-lg mx-auto text-left" enctype="multipart/form-data">
         <div>
             <label for="guest-name" class="block text-sm font-medium text-gray-700 mb-1">ชื่อของคุณ (Your Name)</label>
             <input type="text" name="guest-name" id="guest-name" placeholder="ใส่ชื่อของคุณที่นี่" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
@@ -372,6 +374,21 @@
             <label for="guest-message" class="block text-sm font-medium text-gray-700 mb-1">คำอวยพร (Blessing)</label>
             <textarea name="guest-message" id="guest-message" rows="4" placeholder="เขียนคำอวยพร..." required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
         </div>
+        
+        <div>
+            <label for="guest-image" class="block text-sm font-medium text-gray-700 mb-1">อัปโหลดรูปภาพ (Upload Image)</label>
+            <input type="file" name="guest-image" id="guest-image" accept="image/*" class="w-full text-sm text-gray-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-purple-50 file:text-purple-700
+                hover:file:bg-purple-100
+                focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500
+            ">
+            <div id="image-preview" class="mt-4 flex items-center space-x-4">
+            </div>
+        </div>
+        
         <div class="text-center pt-2">
             <button id="blessing-submit-button" type="submit" class="bg-purple-600 text-white font-semibold py-2 px-8 rounded-full shadow-lg hover:bg-purple-700 transition duration-300">
                 ส่งคำอวยพร
@@ -451,205 +468,251 @@
 </button>
 
 <script>
-    // Welcome Screen Logic
-    const enterButton = document.getElementById('enter-button');
-    const welcomeScreen = document.getElementById('welcome-screen');
-    const mainContent = document.getElementById('main-content');
-    const backgroundMusic = document.getElementById('background-music');
+    document.addEventListener('DOMContentLoaded', function() {
+    
+        // === Welcome Screen Logic ===
+        const enterButton = document.getElementById('enter-button');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainContent = document.getElementById('main-content');
+        const backgroundMusic = document.getElementById('background-music');
 
-    enterButton.addEventListener('click', () => {
-        backgroundMusic.volume = 0.5;
-        backgroundMusic.play();
+        if (enterButton) {
+            enterButton.addEventListener('click', () => {
+                backgroundMusic.volume = 0.5;
+                backgroundMusic.play();
+                welcomeScreen.style.opacity = '0';
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                    mainContent.classList.add('visible');
+                    window.scrollTo(0, 0);
+                }, 1000);
+            });
+        }
 
-        welcomeScreen.style.opacity = '0';
-        setTimeout(() => {
-            welcomeScreen.style.display = 'none';
-            mainContent.classList.add('visible');
-            window.scrollTo(0, 0);
+        // === Countdown Timer Logic ===
+        const countdownDate = new Date("Feb 20, 2026 07:09:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            }
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                if (document.getElementById("countdown")) {
+                    document.getElementById("countdown").innerHTML = "<div class='text-2xl font-bold'>The Wedding Day is Here!</div>";
+                }
+            }
         }, 1000);
-    });
 
-    // Countdown Timer Logic
-    const countdownDate = new Date("Feb 20, 2026 07:09:00").getTime();
-    const countdownFunction = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
+        // === Image Modal Logic ===
+        const galleryImages = document.querySelectorAll('.gallery-scroll-image, .gallery-image');
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModal = document.getElementById('modal-close');
+        if (modal && modalImage && closeModal) {
+            galleryImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    modal.classList.remove('hidden');
+                    modalImage.src = image.src;
+                });
+            });
+            closeModal.addEventListener('click', () => { modal.classList.add('hidden'); });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) { modal.classList.add('hidden'); }
+            });
+        }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // === Gallery Scroll Logic (Both) ===
+        function setupGalleryScroll(containerId, leftBtnId, rightBtnId) {
+            const container = document.getElementById(containerId);
+            const leftBtn = document.getElementById(leftBtnId);
+            const rightBtn = document.getElementById(rightBtnId);
+            if (container && leftBtn && rightBtn) {
+                leftBtn.addEventListener('click', () => { container.scrollBy({ left: -300, behavior: 'smooth' }); });
+                rightBtn.addEventListener('click', () => { container.scrollBy({ left: 300, behavior: 'smooth' }); });
+            }
+        }
+        setupGalleryScroll('gallery-container', 'scroll-left', 'scroll-right');
+        setupGalleryScroll('gallery-container-2', 'scroll-left-2', 'scroll-right-2');
 
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        // === Music Toggle Logic ===
+        const musicToggleButton = document.getElementById('music-toggle');
+        const musicIconOn = document.getElementById('music-icon-on');
+        const musicIconOff = document.getElementById('music-icon-off');
+        if (musicToggleButton && musicIconOn && musicIconOff && backgroundMusic) {
+            musicToggleButton.addEventListener('click', () => {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play();
+                    musicIconOn.classList.remove('hidden');
+                    musicIconOff.classList.add('hidden');
+                } else {
+                    backgroundMusic.pause();
+                    musicIconOn.classList.add('hidden');
+                    musicIconOff.classList.remove('hidden');
+                }
+            });
+        }
+
+        // === RSVP Form Logic ===
+        const rsvpForm = document.getElementById('rsvp-form');
+        const rsvpThankYou = document.getElementById('rsvp-thank-you-message');
+        const rsvpAttendingYes = document.getElementById('attending-yes');
+        const rsvpAttendingNo = document.getElementById('attending-no');
+        const rsvpGuestCountWrapper = document.getElementById('guest-count-wrapper');
+        // ‼️ URL สำหรับ RSVP (จากในโค้ดเดิมของคุณ)
+        const RSVP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkP0lZzQLmhfEeQsPmyZv7F4t6J82lKv_qQATkgUNv2hiGGqvCI6z54iNwrCKpRgzINg/exec"; 
+        
+        if (rsvpAttendingYes && rsvpAttendingNo && rsvpGuestCountWrapper) {
+            rsvpAttendingYes.addEventListener('change', () => {
+                if (rsvpAttendingYes.checked) { rsvpGuestCountWrapper.classList.remove('hidden'); }
+            });
+            rsvpAttendingNo.addEventListener('change', () => {
+                if (rsvpAttendingNo.checked) { rsvpGuestCountWrapper.classList.add('hidden'); }
+            });
+        }
+        if (rsvpForm && rsvpThankYou) {
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = document.getElementById('rsvp-submit-button');
+                submitButton.disabled = true;
+                submitButton.textContent = 'กำลังส่ง...';
+                fetch(RSVP_SCRIPT_URL, { method: 'POST', body: new FormData(rsvpForm) })
+                .then(response => response.json()) // แก้ไขให้รับ JSON
+                .then(data => { 
+                    if (data.result === 'success') {
+                        rsvpForm.classList.add('hidden');
+                        rsvpThankYou.classList.remove('hidden');
+                    } else { throw new Error(data.error || 'Unknown error'); }
+                })
+                .catch(error => {
+                    alert('เกิดข้อผิดพลาดในการส่ง RSVP: ' + error.message);
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'ส่งคำตอบ';
+                });
+            });
+        }
+
+        // === ‼️ โค้ดส่วนฟอร์มอวยพร (ที่แก้ไขแล้ว) ‼️ ===
+
+        // 1. ฟังก์ชันช่วยแปลงไฟล์เป็น Base64 (จำเป็น)
+        const toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+
+        // 2. โค้ดส่งฟอร์ม (Blessing Form) ที่แปลง Base64
+        const blessingForm = document.getElementById('blessing-form');
+        const blessingThankYou = document.getElementById('blessing-thank-you-message');
+        // ‼️ URL สำหรับ Blessing (จากในโค้ดเดิมของคุณ)
+        const BLESSING_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvNKDChRGimofb4DLkbaVo7hR_g7u90Q-B6AmYKJMH1FkNzn-ubH9uXxPV5rJvFEhg/exec"; 
+
+        if (blessingForm && blessingThankYou) {
+            blessingForm.addEventListener('submit', async function(e) { // เพิ่ม async
+                e.preventDefault();
+                const submitButton = document.getElementById('blessing-submit-button'); 
+                submitButton.disabled = true;
+                submitButton.textContent = 'กำลังส่ง...';
+
+                // สร้าง FormData และจัดการไฟล์
+                const formData = new FormData(blessingForm);
+                const fileInput = document.getElementById('guest-image');
+                
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    // รอการแปลง Base64
+                    const base64String = await toBase64(file); 
+                    
+                    // เพิ่มข้อมูลไฟล์ลงใน FormData เพื่อส่งไปให้ Apps Script
+                    formData.append('imageData', base64String.split(',')[1]); // เอาเฉพาะข้อมูล
+                    formData.append('fileName', file.name);
+                    formData.append('fileType', file.type);
+                } else {
+                    // ส่งค่าว่างถ้าไม่มีไฟล์
+                    formData.append('imageData', '');
+                    formData.append('fileName', '');
+                    formData.append('fileType', '');
+                }
+
+                // ส่งข้อมูล
+                fetch(BLESSING_SCRIPT_URL, { method: 'POST', body: formData })
+                .then(response => response.json()) // คาดหวัง JSON
+                .then(data => {
+                    if (data.result === 'success') {
+                        console.log('Success!', data);
+                        blessingForm.classList.add('hidden');
+                        blessingThankYou.classList.remove('hidden'); 
+                    } else {
+                        throw new Error(data.error || 'Unknown error from script');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('เกิดข้อผิดพลาดในการส่งข้อมูล ขออภัยในความไม่สะดวกค่ะ');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'ส่งคำอวยพร';
+                });
+            });
         }
         
-        if (distance < 0) {
-            clearInterval(countdownFunction);
-            if (document.getElementById("countdown")) {
-                document.getElementById("countdown").innerHTML = "<div class='text-2xl font-bold'>The Wedding Day is Here!</div>";
-            }
-        }
-    }, 1000);
+        // 3. โค้ดแสดงรูปภาพตัวอย่าง (Image Preview) (ย้ายมารวมที่นี่)
+        const guestImageInput = document.getElementById('guest-image');
+        const imagePreviewContainer = document.getElementById('image-preview');
 
-    // Image Modal Logic
-    const galleryImages = document.querySelectorAll('.gallery-scroll-image, .gallery-image');
-    const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const closeModal = document.getElementById('modal-close');
-
-    galleryImages.forEach(image => {
-        image.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            modalImage.src = image.src;
-        });
-    });
-
-    closeModal.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
-
-    // Gallery Scroll Logic
-    const galleryContainer = document.getElementById('gallery-container');
-    const scrollLeftButton = document.getElementById('scroll-left');
-    const scrollRightButton = document.getElementById('scroll-right');
-
-    scrollLeftButton.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
-    });
-
-    scrollRightButton.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-
-    // Gallery Scroll Logic 2
-    const galleryContainer2 = document.getElementById('gallery-container-2');
-    const scrollLeftButton2 = document.getElementById('scroll-left-2');
-    const scrollRightButton2 = document.getElementById('scroll-right-2');
-
-    if (galleryContainer2 && scrollLeftButton2 && scrollRightButton2) {
-        scrollLeftButton2.addEventListener('click', () => {
-            galleryContainer2.scrollBy({ left: -300, behavior: 'smooth' });
-        });
-
-        scrollRightButton2.addEventListener('click', () => {
-            galleryContainer2.scrollBy({ left: 300, behavior: 'smooth' });
-        });
-    }
-
-    // Music Toggle Logic
-    const musicToggleButton = document.getElementById('music-toggle');
-    const musicIconOn = document.getElementById('music-icon-on');
-    const musicIconOff = document.getElementById('music-icon-off');
-    
-    musicToggleButton.addEventListener('click', () => {
-        if (backgroundMusic.paused) {
-            backgroundMusic.play();
-            musicIconOn.classList.remove('hidden');
-            musicIconOff.classList.add('hidden');
-        } else {
-            backgroundMusic.pause();
-            musicIconOn.classList.add('hidden');
-            musicIconOff.classList.remove('hidden');
-        }
-    });
-
-    // --- [แก้ไข] ย้ายโค้ดฟอร์มทั้งหมดมาไว้ที่นี่ ---
-
-    // ----- 1. โค้ดสำหรับฟอร์ม RSVP -----
-    const rsvpForm = document.getElementById('rsvp-form');
-    const rsvpThankYou = document.getElementById('rsvp-thank-you-message');
-    const rsvpAttendingYes = document.getElementById('attending-yes');
-    const rsvpAttendingNo = document.getElementById('attending-no');
-    const rsvpGuestCountWrapper = document.getElementById('guest-count-wrapper');
-
-    // !! ใส่ URL ของ RSVP SCRIPT ของคุณที่นี่ !!
-    const RSVP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkP0lZzQLmhfEeQsPmyZv7F4t6J82lKv_qQATkgUNv2hiGGqvCI6z54iNwrCKpRgzINg/exec"; 
-
-    // (Logic ซ่อน/แสดงช่อง จำนวนคน)
-    if (rsvpAttendingYes && rsvpAttendingNo && rsvpGuestCountWrapper) {
-        rsvpAttendingYes.addEventListener('change', () => {
-            if (rsvpAttendingYes.checked) {
-                rsvpGuestCountWrapper.classList.remove('hidden');
-            }
-        });
-        rsvpAttendingNo.addEventListener('change', () => {
-            if (rsvpAttendingNo.checked) {
-                rsvpGuestCountWrapper.classList.add('hidden');
-            }
-        });
-    }
-
-    // (Logic ส่งข้อมูล RSVP)
-    if (rsvpForm && rsvpThankYou) {
-        rsvpForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const submitButton = document.getElementById('rsvp-submit-button');
-            submitButton.disabled = true;
-            submitButton.textContent = 'กำลังส่ง...';
-
-            fetch(RSVP_SCRIPT_URL, {
-                method: 'POST',
-                body: new FormData(rsvpForm)
-            })
-            .then(response => response.json()) // เปลี่ยน .then(response => ...)
-            .then(data => { // เพิ่ม .then(data => ...)
-                if (data.result === 'success') {
-                    rsvpForm.classList.add('hidden');
-                    rsvpThankYou.classList.remove('hidden');
-                } else { throw new Error(data.error || 'Unknown error'); }
-            })
-            .catch(error => {
-                alert('เกิดข้อผิดพลาดในการส่ง RSVP: ' + error.message);
-                submitButton.disabled = false;
-                submitButton.textContent = 'ส่งคำตอบ';
+        if (guestImageInput && imagePreviewContainer) {
+            guestImageInput.addEventListener('change', function(event) {
+                imagePreviewContainer.innerHTML = ''; // ล้างของเก่า
+                const files = event.target.files;
+                if (files && files[0]) {
+                    const file = files[0];
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.alt = 'Image Preview';
+                            img.className = 'w-24 h-24 object-cover rounded-md shadow-md'; 
+                            const fileNameSpan = document.createElement('span');
+                            fileNameSpan.textContent = file.name;
+                            fileNameSpan.className = 'text-gray-600 text-sm truncate max-w-[calc(100%-7rem)]'; 
+                            imagePreviewContainer.appendChild(img);
+                            imagePreviewContainer.appendChild(fileNameSpan);
+                        };
+                        reader.readAsDataURL(file); 
+                    } else {
+                        const fileNameSpan = document.createElement('span');
+                        fileNameSpan.textContent = file.name + ' (ไม่ใช่ไฟล์รูปภาพ)';
+                        fileNameSpan.className = 'text-red-500 text-sm';
+                        imagePreviewContainer.appendChild(fileNameSpan);
+                    }
+                } else {
+                     const noFileText = document.createElement('span');
+                     noFileText.textContent = 'ยังไม่มีรูปภาพที่เลือก';
+                     noFileText.className = 'text-gray-500 text-sm';
+                     imagePreviewContainer.appendChild(noFileText);
+                }
             });
-        });
-    }
 
-    // ----- 2. โค้ดสำหรับฟอร์ม BLESSING -----
-    const blessingForm = document.getElementById('blessing-form');
-    const blessingThankYou = document.getElementById('blessing-thank-you-message');
-    
-    // (ใช้ URL จากสคริปต์ที่คุณให้มา)
-    const BLESSING_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvNKDChRGimofb4DLkbaVo7hR_g7u90Q-B6AmYKJMH1FkNzn-ubH9uXxPV5rJvFEhg/exec";
+            // แสดงข้อความ "ยังไม่มีรูปภาพ" ตอนโหลดหน้า
+            if (!guestImageInput.files.length) {
+                const noFileText = document.createElement('span');
+                noFileText.textContent = 'ยังไม่มีรูปภาพที่เลือก';
+                noFileText.className = 'text-gray-500 text-sm';
+                imagePreviewContainer.appendChild(noFileText);
+            }
+        }
 
-    if (blessingForm && blessingThankYou) {
-        blessingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // [แก้ไข] ต้องใช้ ID ที่ถูกต้อง
-            const submitButton = document.getElementById('blessing-submit-button'); 
-            submitButton.disabled = true;
-            submitButton.textContent = 'กำลังส่ง...'; // ใช้ .textContent ดีกว่า .innerText
-
-            fetch(BLESSING_SCRIPT_URL, {
-                method: 'POST',
-                body: new FormData(blessingForm)
-            })
-            .then(response => {
-                console.log('Success!', response);
-                blessingForm.classList.add('hidden');
-                // [แก้ไข] ต้องใช้ ID ที่ถูกต้อง
-                blessingThankYou.classList.remove('hidden'); 
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert('เกิดข้อผิดพลาดในการส่งข้อมูล ขออภัยในความไม่สะดวกค่ะ');
-                submitButton.disabled = false;
-                submitButton.textContent = 'ส่งคำอวยพร'; // ใช้ .textContent
-            });
-        });
-    }
-
+    }); // End of DOMContentLoaded
 </script>
+
 </body>
 </html>
